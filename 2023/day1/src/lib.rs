@@ -35,3 +35,20 @@ pub fn count_all(string: &str) -> u32 {
 
     first.1 * 10 + last.1
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::fs;
+
+    #[test]
+    fn ascii_digit_count_works() {
+        let mut sum = 0;
+        let contents = fs::read_to_string("trial.txt").expect("falied to read file");
+        let lines: Vec<&str> = contents.lines().collect();
+        for i in lines {
+            sum += count_all(i);
+        }
+        assert_eq!(281, sum);
+    }
+}
