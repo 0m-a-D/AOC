@@ -1,3 +1,4 @@
+#![allow(unused)]
 #[inline]
 pub fn part1(vec: &[&str]) -> bool {
     let mut data = Vec::new();
@@ -19,6 +20,21 @@ pub fn part1(vec: &[&str]) -> bool {
     }
 
     sorted && safe
+}
+
+pub fn part2(vec: &Vec<&str>) -> bool {
+    if part1(vec) {
+        return true;
+    }
+
+    for i in 0..vec.len() {
+        let mut new = vec.clone();
+        new.remove(i);
+        if part1(&new) {
+            return true;
+        }
+    }
+    false
 }
 
 #[cfg(test)]
