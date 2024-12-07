@@ -1,4 +1,4 @@
-use day2::part1;
+use day2::part2;
 use std::fs;
 fn main() {
     let file = fs::read_to_string("input.txt").expect("failed to read file");
@@ -15,7 +15,7 @@ fn main() {
 
     let mut counter = 0;
     for i in data {
-        let cond = part1(&i);
+        let cond = part2(&i);
         if cond {
             counter += 1;
         }
